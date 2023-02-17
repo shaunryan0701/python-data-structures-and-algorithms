@@ -79,6 +79,35 @@ class LinkedList:
     self.length += 1
     return True  
 
+
+  def pop_first(self):
+    if self.length == 0:
+      return None
+    temp = self.head
+    self.head = self.head.next
+    temp.next = None
+    self.length -= 1
+    if self.length == 0:
+      self.tail = None
+    return temp
+
+
+  def get(self, index):
+    if index < 0 or index >= self.length:
+      return None
+
+    temp = self.head
+    for _ in range(index):
+      temp = temp.next
+    return temp
+
+  def set(self, index, value) -> bool:
+    temp = self.get(index) 
+    if temp:
+      temp.value = value
+      return True
+    return False
+
 my_linked_list = LinkedList(4)
 my_linked_list.append(15)
 my_linked_list.append(129)
@@ -90,3 +119,17 @@ print(my_linked_list.print_list())
 
 my_linked_list.prepend(1)
 print(my_linked_list.print_list())
+
+my_linked_list.pop_first()
+print(my_linked_list.print_list())
+
+print(my_linked_list.get(2))
+
+my_linked_list.set(1, 188)
+print(my_linked_list.print_list())
+
+# print(my_linked_list.pop_first())
+# print(my_linked_list.pop_first())
+# print(my_linked_list.pop_first())
+# # Returns None
+# print(my_linked_list.pop_first())
