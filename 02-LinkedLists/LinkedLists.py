@@ -101,7 +101,7 @@ class LinkedList:
       temp = temp.next
     return temp
 
-  def set(self, index, value) -> bool:
+  def set_value(self, index, value) -> bool:
     temp = self.get(index) 
     if temp:
       temp.value = value
@@ -171,7 +171,7 @@ print(my_linked_list.print_list())
 
 print(my_linked_list.get(2))
 
-my_linked_list.set(1, 188)
+my_linked_list.set_value(1, 188)
 print(my_linked_list.print_list())
 
 my_linked_list.insert(2, 77)
