@@ -118,6 +118,7 @@ class DoublyLinkedList:
 		self.length += 1
 		return True
 
+
 my_doubly_linked_list = DoublyLinkedList(5)
 print(my_doubly_linked_list)
 
