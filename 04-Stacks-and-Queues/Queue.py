@@ -32,6 +32,8 @@ class Queue:
 my_queue = Queue(4)
 my_queue.print_queue()
 
+
+
 my_queue.enqueue(7)
 my_queue.enqueue(9)
 my_queue.print_queue()
