@@ -153,40 +153,58 @@ class LinkedList:
       temp = after
 
     return True
+  
+# Interview questions
+  def find_middle_node(self):
+      slow = self.head
+      fast = self.head
+  
+      while fast is not None and fast.next is not None:
+          slow = slow.next
+          fast = fast.next.next
+  
+      return slow.value  
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(15)
 my_linked_list.append(129)
 my_linked_list.append(2098)
-print(my_linked_list.print_list())
+my_linked_list.append(5077) 
+my_linked_list.append(651) 
 
-my_linked_list.pop()
 print(my_linked_list.print_list())
+print(my_linked_list.find_middle_node())
 
-my_linked_list.prepend(1)
-print(my_linked_list.print_list())
+# print(my_linked_list.print_list())
 
-my_linked_list.pop_first()
-print(my_linked_list.print_list())
+# my_linked_list.pop()
+# print(my_linked_list.print_list())
 
-print(my_linked_list.get(2))
+# my_linked_list.prepend(1)
+# print(my_linked_list.print_list())
 
-my_linked_list.set_value(1, 188)
-print(my_linked_list.print_list())
+# my_linked_list.pop_first()
+# print(my_linked_list.print_list())
 
-my_linked_list.insert(2, 77)
-print(my_linked_list.print_list())
-my_linked_list.insert(0, 1)
-print(my_linked_list.print_list())
+# print(my_linked_list.get(2))
 
-my_linked_list.remove(4)
-print(my_linked_list.print_list())
+# my_linked_list.set_value(1, 188)
+# print(my_linked_list.print_list())
 
-my_linked_list.reverse()
-print(my_linked_list.print_list())
+# my_linked_list.insert(2, 77)
+# print(my_linked_list.print_list())
+# my_linked_list.insert(0, 1)
+# print(my_linked_list.print_list())
+
+# my_linked_list.remove(4)
+# print(my_linked_list.print_list())
+
+# my_linked_list.reverse()
+# print(my_linked_list.print_list())
 
 # print(my_linked_list.pop_first())
 # print(my_linked_list.pop_first())
 # print(my_linked_list.pop_first())
 # # Returns None
 # print(my_linked_list.pop_first())
+
