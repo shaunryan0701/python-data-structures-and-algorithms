@@ -164,6 +164,23 @@ class LinkedList:
           fast = fast.next.next
   
       return slow.value  
+  
+  def has_loop(self):
+    slow = self.head
+    fast = self.head
+    
+    list_has_loop = False
+    
+    while fast is not None and fast.next is not None:
+        fast = fast.next
+        if fast == slow:
+            list_has_loop = True
+            break
+        else:
+            fast = fast.next 
+        slow = slow.next
+    
+    return list_has_loop
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(15)
@@ -174,6 +191,10 @@ my_linked_list.append(651)
 
 print(my_linked_list.print_list())
 print(my_linked_list.find_middle_node())
+
+print(my_linked_list.has_loop()) # Returns False
+my_linked_list.tail.next = my_linked_list.head
+print(my_linked_list.has_loop()) # Returns True
 
 # print(my_linked_list.print_list())
 
