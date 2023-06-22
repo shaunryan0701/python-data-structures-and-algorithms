@@ -181,6 +181,29 @@ class LinkedList:
         slow = slow.next
     
     return list_has_loop
+  
+  def find_kth_from_end(self, k):
+    slow = self.head
+    fast = self.head
+
+    for _ in range(k):
+      if fast is None:
+        return None
+      fast = fast.next
+
+
+    while fast is not None:
+      slow = slow.next
+      fast = fast.next
+
+    return slow
+
+  def reverse_between(self, m, n):
+    if self.head is None or self.length == 1:
+      return None
+    
+    
+
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(15)
