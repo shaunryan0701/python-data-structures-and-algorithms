@@ -199,11 +199,27 @@ class LinkedList:
     return slow
 
   def reverse_between(self, m, n):
-    if self.head is None or self.length == 1:
-      return None
-    
-    
+      if self.head is None or self.length == 1:
+          return None  
+          
+      dummy_node = Node(0)
+      dummy_node.next = self.head
+      
+      prev = dummy_node
+      
+      for i in range(m):
+          prev = prev.next
+  
+      current = prev.next
 
+      for i in range(n - m):
+          temp = current.next
+          current.next = temp.next
+          temp.next = prev.next
+          prev.next = temp
+  
+      self.head = dummy_node.next
+    
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(15)
@@ -216,8 +232,12 @@ print(my_linked_list.print_list())
 print(my_linked_list.find_middle_node())
 
 print(my_linked_list.has_loop()) # Returns False
-my_linked_list.tail.next = my_linked_list.head
-print(my_linked_list.has_loop()) # Returns True
+# my_linked_list.tail.next = my_linked_list.head
+# print(my_linked_list.has_loop()) # Returns True
+
+my_linked_list.reverse_between(2, 4)
+print("Reversed sublist (2, 4): ")
+my_linked_list.print_list()
 
 # print(my_linked_list.print_list())
 
